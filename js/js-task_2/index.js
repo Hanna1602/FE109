@@ -1,5 +1,5 @@
 
-/*let Uname = prompt("Как Вас зовут?");
+let Uname = prompt("Как Вас зовут?");
     console.log("Меня зовут " + Uname +"!");
     age = prompt("Сколько Вам лет?"),
     console.log("Мне " + age + "лет!");
@@ -12,7 +12,7 @@
     console.log(phone, email);
 
 let year = 2021 - age;
-    console.log(Uname + " родился в " + year);*/
+    console.log(Uname + " родился в " + year);
 
      let str = "568397",
         str1 = Number(str[0]) + Number(str[1]) + Number([2]),
@@ -45,6 +45,8 @@ let b = 2;
         } else {
             console.log("Неверно")
         }
+
+
 
 
 
