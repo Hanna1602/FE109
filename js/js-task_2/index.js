@@ -127,4 +127,4 @@ let str1 = 'индо земля зашаталась под ногами-и вы
     str7 = 'зверь не зверь, человек не человек,',
     str8 = 'В ту же минуту, безо всяких туч,',
     text;
-console.log(text = str6 + ' ' + str8 + ' ' + str3 + ' ' + str1 + ' ' + str5 + ' ' + str7 + ' ' + str4 + ' ' + str2);
+console.log(text = str6 + ' ' + str8 + ' ' + str3 + ' ' + str1 + ' ' + str5 + ' ' + str7 + ' ' + str4 + ' ' + str2); 
