@@ -20,6 +20,7 @@ function bonusTime(salary, bonus) {
     
 
 function getGrade (s1, s2, s3) {
+<<<<<<< HEAD
     if ( (s1 + s2 + s3)/3 >= 90 &&  (s1 + s2 + s3)/3 <= 100) {
         return "A";
           }
@@ -36,3 +37,8 @@ function getGrade (s1, s2, s3) {
         return "F";
           }
       }
+=======
+   
+}
+ 
+>>>>>>> 03bda6594b19562609b54b84d9e5e11480c1ab2a
