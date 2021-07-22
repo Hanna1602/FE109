@@ -1,44 +1,39 @@
-/*Калькулятор. Возможные методы: вкл/выкл калькулятора, получение выражения для
-расчета или, а и б числа с операцией, вычисление выражения, показ результата расчета.*/
+let list = document.querySelector('ul');
 
-let Calc = function(){
+list.addEventListener('click', function (ev) {
+    if(ev.target.tagName === "LI") { // при клике эл-ту устанавливается класс (зачеркивается)
+       ev.target.classList.toggle('checked');//
+    } else if(ev.target.tagName === "SPAN") {
+       var div = ev.target.parentNode;// получаем родителя SPAN и удалем
+       div.remove();
+    }
+}, false);
+
+document.addEventListener( 'keyup', function(event) {
+   if( event.code === 'Enter' ){
+      newElement();
+   };
+ });
+
+function newElement() {
+    let li = document.createElement('li');// создание нового эл-та
+    let inputValue = document.getElementById('toDoEl').value;// получаем значение поля input
+    let t = document.createTextNode(inputValue);// создаем новый текстовый узел на основе значения input
+    li.appendChild(t);// добавляем тегу li значение 
+
+    if(inputValue == "") {
+       alert("Введите дело -_-");
+    } else {
+       document.getElementById('list').appendChild(li);
+    }
+
+    document.getElementById('toDoEl').value = "";// очищаем поле
+
+    let span = document.createElement('SPAN');
+    let txt = document.createTextNode("X");
     
-    this.get = function(){
-       
-        this.a = prompt('Введите число a');
-        this.b = prompt('Введите число b');
-        this.oper = prompt('Введите операцию: +, -, *, /');
-
-        this.operation();
-
-    }
-
-    this.operation = function(){
-        
-        switch(this.oper){
-            case '+':
-                this.result = this.a + this.b;
-            break;
-            case '-':
-                this.result = this.a - this.b;
-            break;
-            case '*':
-                this.result = this.a * this.b;
-            break;
-            case '/':
-                this.result = this.a / this.b;
-            break;
-            default: this.result = 0;
-        }
-
-        this.show();
-    }
-
-    this.show =  function(){
-        alert(this.a + ' ' + this.oper + ' ' + this.b + ' = ' + this.result);
-    }    
+    span.className = "close";
+    span.appendChild(txt);
+    li.appendChild(span);
 }
-
-let calc = new Calc();
-calc.get();
-
+ 
