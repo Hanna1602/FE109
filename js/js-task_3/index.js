@@ -1,158 +1,104 @@
-// №1 Выведите числа от 1 до 50 и от 35 до 8
+/*function Person(first, last,age, gender){
+    this.name = {
+        first,
+        last,
+    };
 
-for(let i = 0; i <= 50 ; i++){
-    console.log(i);
-}
+    this.age = age;
+    this.gender = gender;
+    
+};
 
-for(let j = 35; j >= 8; j--){
-    console.log(j);
-}
 
-/* №2 Выведите столбец чисел от 89 до 11 - воспользуйтесь циклом while и отделите 
-числа тегом <br/> друг от друга, чтобы получить столбец, а не строку */
+//функ-ое наследование
+function Student(first, last, age, gender, group){
+    Person.apply(this, arguments);
+    this.group = group;
 
-let a = 89;
-while(89 >= 11){
-    document.write(a + "<br>");
-    a--;
-}
+};
 
-/* №3 С помощью цикла найти сумму чисел от 0 до 100 */
+let newPerson = new Person("Иван", "Самоилович", 40, "male");
+console.log(newPerson);
 
-let sum = 0;
-for(let i = 0; i <= 100; i++){
-    sum +=i;
-}
-console.log("Task 3 - sum = " + sum);
+let newStudent = new Student("Евгения", "Зайцева", 21, "female", "011024");
+console.log(newStudent);*/
 
-/* №4  Найти сумму чисел в каждом числе от 1 до 5 */
-
-let velue = prompt('Введите число от 1 до 5');
-switch(value){
-    case 1:
-        console.log("Task 4 - sum = " + 1);
-    break;
-    case 2:
-        for(let value = 0; value <= 2; value++){
-            sum +=value;
-        }
-        console.log("Task 4 - sum = " + sum);
-    break;
-    case 3:
-        for(let value = 0; value <= 3; value++){
-            sum +=value;
-        }
-        console.log("Task 4 - sum = " + sum);
-    break;
-    case 4:
-        for(let value = 0; value <= 4; value++){
-            sum +=value;
-        }
-        console.log("Task 4 - sum = " + sum);
-    break;
-    case 5:
-        for(let value = 0; value <= 5; value++){
-            sum +=value;
-        }
-        console.log("Task 4 - sum = " + sum);
-    break;
-
-}
-
-/* №5  Выведите четные числа от 8 до 56 */
-    let i = 8;
-    while(i<=56){
-        i++;
-        if(i % 2 == 0)
-        {
-            console.log("Task 5 -" + i );
-        }
+let DOM = function(){
+    //1)создание и возврат новых элементов по имени тега
+    this.create = function(tagName) {
+        return document.createElement(tagName);
+    };
+    //2) добавлениe атрибута к элементу или возврат значения атрибута
+    this.attr = function(element, name, value){
+        element.setAttribute(name, value);
+    };
+    //3) добавление любого содержимого внутрь элемента или его возврата
+    this.html = function(element, value){
+         element.innerHTML = value;
+    };
+    //4) поиск и возврат найденных элементов внутри переданного или в document по селектору CSS
+    this.search = function(element, selector, number){
+        if(!element ||!selector) return false;
+        return (!number) ? element.querySelector(selector) : element.querySelectorAll(selector[number]);
+    };
+    //5)  добавление класса к элементу
+    this.addClass = function(element, className){
+       element.classList.add(className);
+    };
+    //6) удаление класса из элемента
+    this.removeClass = function(element, className){
+       element.classList.remove(className);
+    };
+    //7) переключение класса в элементе
+    this.toggleClass = function(element, className){
+        element.classList.toggle(className);
     }
+    //8) добавление класса к элементу;
+    this.addClass = function(element, className){
+        element.classList.add(className);
+    };
+    //9) проверка существования класса в элементе (должен вернуть true или false)
+    this.hasClass = function(element, className){
+        return element.classList.contains(className);
+    };
+    
+};
 
-    for(let i = 8; i <= 56; i++){
-        if(i % 2 == 0)
-        {
-            console.log("Task 5 -" + i );
-        }
-    }
+let Dom = new DOM();
+let body = document.body;
 
-/* №6  Вывести на экран таблицу умножения от 2 до 10 */
+//1
+let h1 = Dom.create("h1");
+console.log(h1);
+let div = Dom.create("div");
+console.log(div);
+let span = Dom.create("span");
+console.log(span);
 
-    for(let i = 2; i <= 10; i++ ){
-        for(let j = 1; i <= 10; j++){
-            console.log(i + "*" + j + "=" + (i*j));
-        }
-    }
+//2
+Dom.attr(h1, "class", "btn");
+console.log(h1);
 
-/* №7 Дано число n=1000. Делите его на 2 столько раз, пока результат деления не станет
-меньше 50. Какое число получится? Посчитайте количество итераций, необходимых
-для этого (итерация - это проход цикла), и запишите его в переменную num.  */
+//3
+let elem = Dom.html(h1, "Куплю слона недорого!");
+console.log(elem);
+let elemSpan = Dom.html(span, "змейка");
+console.log(span);
 
-    let n = 1000, num = 0;
-    while(true){
-        if(n >= 50){
-            n = n / 2;
-            num++;
-        }
-        else {
-            break;
-        }
-    }
-    console.log("Task 7 - n = " + n + "num = " + num);
-
-/* №8  Запустите цикл, в котором пользователю предлагается вводить число с клавиатуры, до
-тех пор, пока не будет введена пустая строка или 0. После выхода из цикла выведите
-общую сумму и среднее арифметическое введённых чисел. Если пользователь ввел не
-число, то вывести сообщение об ошибке ввода. При подсчете учесть, что пользователь
-может ввести отрицательное значение. */
-
-    let agNum = 0,
-        Num = 0,
-        Sum = 0,
-        k = 0;
-    while(true){
-        Num = +prompt("Введите число");
-        if(Num == 0){ // при пробеле, пустой строке, cancel
-            break;
-        }
-        Sum += Num;
-        k++;
-        console.log(Num +" "+ Sum +" "+ k);
-    }
-    console.log("Task 8 - "+ "Суммы: "+ Sum + " Среднее: "+ sum/k);
-
-/* №9  Дана строка с числами разделенными пробелами «4 98 4 6 1 32 4 65 4 3 5 7 89 7 10 1 36
-8 57». Найдите самое большое и самое маленькое число в строке, используя цикл. */
-
-let str = '4 98 4 6 1 32 4 65 4 3 5 7 89 7 10 1 36 8 57';
-let arrStr = str.split(" "); // преобразование в массив
-let max = arrStr[0], min = arrStr[0];
-for(let i = 0; i < arrStr.length; i++){
-    if(arrStr[i] > max){
-        max = arrStr[i];
-    }
-    if(arrStr[i] < min){
-        min = arrStr[i];
-    }
-}
-console.log(`MAX ${max}, MIN ${min}`);
-
-/* №10  Дано произвольное целое число n. Написать программу, которая:
-a. разбивает число n на цифры и выводит их на экран;
-b. подсчитывает сколько цифр в числе n;
-c. находит сумму цифр числа n;
-d. меняет порядок цифр числа n на обратный. */
-
-str = prompt("Введите число");
-let summa  = 0;
-arrStr = str.split(" ");
-for(let i = 0; i < arrStr.length; i++){
-    summa += +arrStr[i];
-}
-console.log("Task 10 -" + "число: "+str);
-rev = arrStr.reverse().join("");
-console.log("цифр в числе: "+ arrStr.length+ "\n Сумма чисел массива: "+ summa + "\n Обратный порядок: "+ rev);
+//4
+console.log(Dom.search(body, "span"));
 
 
+// 5 и 8
+Dom.addClass(span, "header");
+Dom.addClass(span, "button");
 
- 
+//6
+Dom.removeClass(span, "header");
+
+//7
+Dom.toggleClass(h1,"btn_2");
+
+//9
+console.log(Dom.hasClass(h1, "btn"));
+

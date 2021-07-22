@@ -2,10 +2,84 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Js 4</title>
-    <script src="index.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
+    <title>Contacts</title>
+    <link href="style.css" rel="stylesheet">
+    <script defer src="script.js"></script>
 </head>
-<body>
 
+<body>
+    <div class="wrapper">
+        <form class="formForUser">
+            <h1>Contacts</h1>
+            <div class="wrapperForm">
+
+                <div class="Name">
+                    <label for="NameLabel" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="NameLabel" value="Hanna" required>
+                </div>
+
+                <div class="email">
+                    <label for="emailLabel" class="form-label">Your email</label>
+                    <input type="email" class="form-control" id="emailLabel" value="user@gmail.com" required>
+                </div>
+
+                <div class="address">
+                    <label for="addressLabel" class="form-label">Your address</label>
+                    <input type="text" class="form-control" id="addressLabel" required>
+                </div>
+
+                <div class="phone">
+                    <label for="phoneLabel" class="form-label">Your phone</label>
+                    <input type="tel" class="form-control" id="phoneLabel" required>
+                </div>
+
+                <div class="submit">
+                    <button class="btn btn-submit" type="submit" form="reset">Submit</button>
+                    <button class="btn btn-delAll" type="reset"><p>Delete All</p></button>
+                <button class="btn btn-clear" type="reset">Clear</button>
+                </div>
+
+            </div>
+        </form>
+
+        <div class="contacts">
+            <table class="contactListAll">
+                <thead>
+                    <tr>
+                        <td class="elemId">№</td>
+                        <td>Name</td>
+                        <td>Email</td>
+                        <td>Address</td>
+                        <td>Phone</td>
+                        <td><p>EDIT</p></td>
+                        <td><p>DEL</p></td>
+                    </tr>
+                </thead>
+                <tbody class="contactList">
+                    <tr>
+                        <td class="elemId">№</td>
+                        <td class="elemFirstName">Name</td>
+                        <td class="elemEmail">Email</td>
+                        <td class="elemAddress">Address</td>
+                        <td class="elemPhone">Phone</td>
+                        <td class="pensil">
+                            <button class="btn btn-edit" type="submit">
+                                <p></p>
+                            </button>
+                        </td>
+                        <td class="trash">
+                            <button class="btn btn-del" type="reset"><p></p></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
+
 </html>
